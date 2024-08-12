@@ -2,7 +2,7 @@ from fastapi import Request
 from fastapi.exceptions import RequestValidationError, HTTPException
 from fastapi.responses import JSONResponse
 
-from logger import logger
+from utils.logger import logger
 
 
 async def logger_error_middleware(request: Request, call_next):
