@@ -48,7 +48,7 @@ class ProductService:
             return product_details
         except Exception as e:
             logger.error(f"An unexpected error occurred for URL: {url} with error: {e}")
-            raise HTTPException(status_code=500, detail="An unexpected error occurred")
+            raise HTTPException(status_code=500, detail=f"An unexpected error occurred: {e}")
 
     def fetch_all_products(self) -> list[Product]:
         all_products = []
