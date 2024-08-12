@@ -3,7 +3,7 @@ import requests
 from fastapi import HTTPException
 from products_app.models import Product
 from products_app.config import settings
-import logging
+from logger import logger
 
 
 class ProductService:
@@ -16,10 +16,10 @@ class ProductService:
 
             # Check if the URL response  is in the cache
             if cached_data:
-                logging.info(f"Cache hit for URL: {url}")
+                logger.info(f"Cache hit for URL: {url}")
                 return json.loads(cached_data)
             else:
-                logging.info(f"Cache miss for URL: {url}")
+                logger.info(f"Cache miss for URL: {url}")
 
             response = requests.get(url)
             if response.status_code != 200:
@@ -47,7 +47,7 @@ class ProductService:
 
             return product_details
         except Exception as e:
-            logging.error(f"An unexpected error occurred for URL: {url} with error: {e}")
+            logger.error(f"An unexpected error occurred for URL: {url} with error: {e}")
             raise HTTPException(status_code=500, detail="An unexpected error occurred")
 
     def fetch_all_products(self) -> list[Product]:
