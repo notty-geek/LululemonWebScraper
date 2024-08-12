@@ -4,17 +4,13 @@ from fastapi import FastAPI, Depends
 from middleware import logger_error_middleware
 from products_app.services.product_service import ProductService
 from mangum import Mangum
-import redis
+from utils.redis_client import get_redis_client
 
 app = FastAPI()
 app.middleware("http")(logger_error_middleware)
 
-# Use environment variables for Redis connection
-redis_host = os.getenv('REDIS_HOST', 'localhost')
-redis_port = int(os.getenv('REDIS_PORT', 6379))
-# Connect to the Redis instance
-redis_client = redis.StrictRedis(host=redis_host, port=redis_port, db=0)
-
+# Initialize Redis client and ProductService
+redis_client = get_redis_client()
 # Create a single instance of ProductService
 product_service_instance = ProductService(redis_client)
 

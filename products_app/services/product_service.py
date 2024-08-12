@@ -2,8 +2,8 @@ import json
 import requests
 from fastapi import HTTPException
 from products_app.models import Product
-from products_app.config import settings
-from logger import logger
+from config import settings
+from utils.logger import logger
 
 
 class ProductService:
