@@ -78,3 +78,10 @@ Once deployed, you can access the API using the API Gateway URL provided by AWS 
 ## Notes
 - This application is designed to run as a serverless service using AWS Lambda and API Gateway.
 - Caching is implemented using `redis`.
+
+
+
+Unit Test  
+
+![Screenshot 2024-08-12 at 1.08.23 PM.png](..%2F..%2F..%2F..%2Fvar%2Ffolders%2Fx1%2Fztyf7cr13tscl59t7gkzgmjr0000gn%2FT%2FTemporaryItems%2FNSIRD_screencaptureui_GXIPJI%2FScreenshot%202024-08-12%20at%201.08.23%E2%80%AFPM.png)
+
