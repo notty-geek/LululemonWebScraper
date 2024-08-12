@@ -1,0 +1,7 @@
+fastapi
+mangum
+requests
+cachetools
+pydantic-settings
+pytest
+redis
